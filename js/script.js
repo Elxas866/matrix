@@ -14,7 +14,8 @@ let ch = canvas.height / fontSize;
 let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789#.-,;:+=~*^%$@';
 let fallingChars = []; // Array to store falling characters
 let maxChars = 500;
-
+let colors = ['cyan', 'magenta', 'gold', 'white', 'green'];
+let colorIndex = Math.floor(Math.random() * colors.length);
 
 class FallingChar {
 	constructor(x, y, speed) {
@@ -25,7 +26,7 @@ class FallingChar {
 
 	draw() {
 		ctx.font = fontSize + 'px monospace';
-		ctx.fillStyle = 'green';
+		ctx.fillStyle = colors[colorIndex];
 		ctx.fillText(chars[Math.floor(Math.random() * chars.length)], this.x, this.y);
 	}
 }
