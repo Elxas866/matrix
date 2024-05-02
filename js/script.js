@@ -11,10 +11,10 @@ let fontSize = 25;
 let cw = canvas.width / fontSize;
 let ch = canvas.height / fontSize;
 
-let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789#.-,;:+=~*^%$@';
+let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789#;:%$@';
 let fallingChars = []; // Array to store falling characters
-let maxChars = 500;
-let colors = ['cyan', 'magenta', 'gold', 'white', 'green'];
+let maxChars = 250;
+let colors = ['cyan', 'magenta', 'gold', 'white', 'green', 'lime', 'red'];
 let colorIndex = Math.floor(Math.random() * colors.length);
 
 class FallingChar {
@@ -34,10 +34,10 @@ class FallingChar {
 let update = () => { 
 	ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
 	ctx.fillRect(0, 0, cw * fontSize, ch * fontSize);
-	let speed = Math.floor(Math.random() * 5) + 1;
-	x = Math.floor(Math.random() * cw);
+	let speed = Math.floor(Math.random() * 5) + 10;
+	x = Math.floor(Math.random() * cw) * fontSize;
 	if (fallingChars.length < maxChars) {
-		fallingChars.push(new FallingChar(x * fontSize, y, speed));
+		fallingChars.push(new FallingChar(x, y, speed));
 	}
 	
 	fallingChars.forEach(char => { 
@@ -47,4 +47,4 @@ let update = () => {
 	});
 };
 
-setInterval(update, 1000 / 60);
+setInterval(update, 1000 / 30);
