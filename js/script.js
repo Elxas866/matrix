@@ -13,7 +13,7 @@ let ch = canvas.height / fontSize;
 
 let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789#;:%$@';
 let fallingChars = []; // Array to store falling characters
-let maxChars = 250;
+let maxChars = 500 * (cw / 100);
 let colors = ['cyan', 'magenta', 'gold', 'white', 'green', 'lime', 'red'];
 let colorIndex = Math.floor(Math.random() * colors.length);
 
