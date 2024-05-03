@@ -1,9 +1,9 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 
+canvas.style.backgroundColor = 'black';
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-canvas.style.backgroundColor = 'black';
 
 let x = 0;
 let y = 0;
@@ -16,6 +16,15 @@ let fallingChars = []; // Array to store falling characters
 let maxChars = 500 * (cw / 100);
 let colors = ['cyan', 'magenta', 'gold', 'white', 'green', 'lime', 'red'];
 let colorIndex = Math.floor(Math.random() * colors.length);
+
+window.addEventListener('resize', () => {
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	cw = canvas.width / fontSize;
+	ch = canvas.height / fontSize;
+	maxChars = 500 * (cw / 100);
+	fallingChars = [];
+})
 
 class FallingChar {
 	constructor(x, y, speed) {
