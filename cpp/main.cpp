@@ -19,6 +19,7 @@ public:
 
 	void draw() {
 		// TODO Draw the character at (x, y)
+		// TODO Draw rectangle with low opacity over the character (fade effect)
 		y += speed;
 	}
 };
