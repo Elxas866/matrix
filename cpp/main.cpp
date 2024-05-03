@@ -3,16 +3,43 @@
 
 using namespace std;
 
-// Window width and height
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
+class FallingChar {
+private:
+	char c;
+	int x;
+	int y;
+	int speed;
+public:
+	FallingChar(char c, int x, int y, int speed) {
+		this->c = c;
+		this->x = x;
+		this->y = y;
+		this->speed = speed;
+	}
 
-int main(int argc, char** args) {
+	void draw() {
+		// TODO Draw the character at (x, y)
+		y += speed;
+	}
+};
+
+int main(int argc, char** argv) {
+
+		// Check the number of arguments
+		if (argc != 3) {
+			cerr << "Usage: " << argv[0] << " <width> <height>" << endl;
+			return 1;
+		}
+
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         cerr << "SDL could not initialize! SDL_Error: " << SDL_GetError() << endl;
         return 1;
     }
+
+		// Window width and height
+		const int SCREEN_WIDTH = atoi(argv[1]);
+		const int SCREEN_HEIGHT = atoi(argv[2]);
 
     // Create a window
     SDL_Window* window = SDL_CreateWindow("Black Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
